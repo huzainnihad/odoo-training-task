@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stud_pivot" model="ir.ui.view">
+         <field name="name">bi.student.pivot</field>
+         <field name="model">bi.student</field>
+         <field name="arch" type="xml">
+             <pivot>
+                <field name="stud_name" string="Student Name" type="row" />
+                <field name="stud_age" string="Student Age"/>
+                <field name="stud_mark" string="Student Mark"/>
+                <field name="stud_gender" string="Gender"/>
+             </pivot>
+         </field>
+    </record>
+
+
+    <record id="view_stud_kanban" model="ir.ui.view">
+        <field name="name">bi.student.kanban</field>
+        <field name="model">bi.student</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="stud_name" string="Student Name"/>
+                <field name="stud_age" string="Student Age"/>
+                <field name="stud_mark" string="Student Mark"/>
+                <field name="stud_gender" string="Gender"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row">
+                                <ul>
+                                    <li>
+                                        <field name="stud_name"/>
+                                    </li>
+                                     <li>
+                                        <field name="stud_age"/>
+                                    </li>
+                                      <li>
+                                        <field name="stud_mark"/>
+                                    </li>
+                                      <li>
+                                        <field name="stud_gender"/>
+                                    </li>
+                                    <li>
+                                        <field name="link" widget="url"  string="Link"/>
+                                    </li>                                    
+                                </ul>                              
+                            </div>                          
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+  <record id="view_stud_tree" model="ir.ui.view">
+            <field name="name">bi.student.tree</field>
+            <field name="model">bi.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="stud_name" string="Student Name"/>
+                    <field name="stud_age" string="Student Age"/>
+                    <field name="stud_mark" string="Student Mark"/>
+                    <field name="stud_gender" string="Gender"/>
+                    <field name="link" widget="url"  string="Link"/>
+                </tree>
+            </field>
+    </record>
+
+  <record id="view_stud_form" model="ir.ui.view">
+            <field name="name">bi.student.form</field>
+            <field name="model">bi.student</field>
+            <field name="arch" type="xml">
+                <form>
+                     <header>
+                        <button name="action_approve" states="draft" string="Approve" type = "object"  class="oe_highlight"/>
+                        <button name="action_send_mail"  data-hotkey="m" string="Send Mail" type = "object"  class="oe_highlight"/>
+                        <button name="action_done" states="confirmed" string="Done" type = "object" class="oe_highlight"/>
+                        <button name="action_cancel" states="cancel" string="Cancel" type = "object" class="oe_highlight"/>
+                        <!-- options="{'clickable':'1'}" -->
+                        <field name="state" widget="statusbar"                         
+                            statusbar_visible = "draft,done,confirmed"/>
+                    </header>
+                        <sheet>
+
+                            <widget name="web_ribbon" title="PASSED" bg_color="bg-success" attrs="{'invisible':['|', ('stud_mark','&lt;',30), ('state','in',('draft','confirmed'))]}"/>
+                            <widget name="web_ribbon" title="FAILED" bg_color="bg-danger" attrs="{'invisible':['|', ('stud_mark','&gt;',30), ('state','in',('draft','confirmed'))]}"/>
+                            <group>
+                                <group> 
+                                    <field name="stud_name" attrs="{'readonly':[('state','=','done')]}" string="Student Name"/>
+                                    <field name="stud_age" attrs="{'readonly':[('state','=','done')]}" string="Student Age"/>
+                                    <field name ="stud_gender" attrs="{'readonly':[('state','=','done')]}" string="Gender"/>
+                                    <field name="password" password="True" sting="Password" />
+                                    <field name="message" string="Message"/>
+                                    <field name="increment" string="Auto Increment " />
+                                </group>
+                                <group>
+                                    <field name="stud_result" attrs="{'readonly':[('state','=','done')]}" string="Student Result"/>
+                                    <field name="stud_mark" attrs="{'readonly':[('state','=','done')]}" string="Student Mark"/>
+                                    <field name="stud_reference" attrs="{'readonly':[('state','=','done')]}" string="Ref"/>
+                                    <field name="link" widget="url"  string="Link"/>
+                                    <field name="email" widget="email" string="Email" />
+                                </group>
+                            </group>
+                          <notebook>
+                            <page name="add subject" string="add subject">
+                                <field name="stud_sub_line_ids" attrs="{'readonly':[('state','=','done')]}">
+                                    <tree editable="bottom">
+                                        <field name="stud_sub_name"/>
+                                        <field name="mark"/>
+                                    </tree>
+                                    <form>  
+                                      <group>
+                                        <field name="stud_sub_name"/>
+                                        <field name="mark"/>
+                                      </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="Sale_Detail" string="Sale Details">
+                                <group>
+                                    <group>
+                                        <field name="sale_id" string="Sale id" />
+                                        <field name="customer_name" string="Customer Name"/>
+                                    </group>
+                                    <group>
+                                        <field name="order_date" string="Order Date"/>
+                                        <field name="payment_terms" string="Payment Terms"/>
+                                    </group>
+                                </group>
+                                 <field name="product_details_ids" attrs="{'readonly':[('state','=','done')]}">
+                                    <tree editable="bottom">
+                                        <field name="product"/>
+                                        <field name="quantity"/>
+                                        <field name="unit_price"/>
+                                        <field name="subtotal"/>
+                                    </tree>
+                                    <form>  
+                                      <group>
+                                        <field name="product"/>
+                                        <field name="quantity"/>
+                                        <field name="unit_price"/>
+                                        <field name="subtotal"/>
+                                      </group>
+                                    </form>
+                                </field>
+                                
+                            </page>
+                          </notebook>
+                    
+
+                        </sheet>
+                        <div class = "oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                        </div>
+                    </form>
+                </field>
+        </record>
+
+      <record id="view_stud_search" model="ir.ui.view">
+            <field name="name">bi.student.search</field>
+            <field name="model">bi.student</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="stud_name" string="Student Name" filter_domain="['|',('stud_name', 'ilike', self), ('stud_age', 'ilike', self)]"/>
+                    <field name="stud_age" string="Student Age"/>
+                    <field name ="stud_gender" string="Gender"/>
+                    <field name="link" widget="url" string="Link"/>
+                    <field name="stud_mark" string="Student Mark"/>
+                    <filter name="filter_male" string="Male" domain="[('stud_gender','=','male')]"/>
+                    <filter name="filter_female" string="Female" domain="[('stud_gender','=','female')]"/>
+                    <separator/>
+                    <filter name="filter_kids" string="kids" domain="[('stud_age', '&lt;=', 5)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Gender" name="group_by_gender" context="{'group_by':'stud_gender'}"/>
+                        <separator/>
+                        <filter string="Mark" name="group_by_mark" context="{'group_by':'stud_mark'}"/>
+                    </group>
+                </search>
+            </field>
+    </record>
+
+
+    <data>
+        <record id="action_stud_details" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bi.student</field>
+            <field name="view_mode">tree,form,kanban,pivot</field>
+            <field name="context">{}</field> 
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Create your first student</p>
+            </field>
+        </record>
+
+    <menuitem
+      id="menu_student"
+      name="Students"
+      action="action_stud_details"
+      parent= "menu_student_master"
+      sequence="-5"/>
+
+    </data>
+</odoo>
+
+                                     <!-- <group>
+                                        <field name="product"/>
+                                        <field name="quantity"/>
+                                        <field name="unit_price"/>
+                                        <field name="subtotal"/>
+                                      </group> -->

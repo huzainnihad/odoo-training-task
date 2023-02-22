@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchase_id_card">
+        <div class="header">
+                <div class="text-left">
+                    <img t-att-src="'/bi_purchase_report/static/description/icon.png'" style="height:80px;width:80px"/>
+                </div>
+                <div class="text-right" style="border-bottom: 1px solid black;margin-top: -83px;">
+                    <h6> Bassam Commercial Complex,<br/> Kallai Rd, Pushpa Junction,<br/> Chalappuram, Kozhikode, Kerala<br/> 673002</h6>
+                </div> 
+        </div>
+        <div class="footer o_standard_footer" style="border-top: 1px solid black;">
+            <div class="text-center">
+                <h5>www.bassaminfotech.com</h5>
+            </div>
+        </div>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <center><h3>PURCHASE ORDER</h3></center><br/><br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Purchase Representative:</strong><br/>
+                                <span t-field="o.partner_id"/><br/>
+                                <span t-field="o.partner_id.street"/><br/>
+                                <!-- <span t-field="o.partner_id.street2"/><br/> -->
+                                <span t-field="o.partner_id.city"/><br/>
+                                <span t-field="o.partner_id.state_id"/><br/>
+                                <span t-field="o.partner_id.zip"/><br/>
+                                <!-- <span t-field="o.partner_id.vat"/><br/>
+                                <span t-field="o.partner_id.phone"/><br/>
+                                <span t-field="o.partner_id.email"/><br/>
+                                 -->
+
+                            </div>
+                            <div class="col-6">
+                                <strong >Order Date:</strong>
+                                <span t-field="o.date_approve"/><br/><br/>
+                                <strong>Purchase Number:</strong>
+                                <span t-field="o.name"/>
+                            </div>
+                        </div><br/><br/>
+                        <t t-if="o.order_line">
+                            <table class="table table-sm o_main_table;margin-top: 30px;">
+                                <thead style="background-color: #797d7f;">
+                                    <tr>
+                                        <th name="th_product" class="text-left">
+                                            <span>Product</span>
+                                        </th>
+                                        <th name="th_description" class="text-left">
+                                            <span>Description</span>
+                                        </th>
+                                        <th name="th_quantity" class="text-left">
+                                            <span>Quantity</span>
+                                        </th>
+                                        <th name="th_unit_price" class="text-left">
+                                            <span>Unit Price</span>
+                                        </th>
+                                        <th name="th_taxes" class="text-left">
+                                            <span>Taxes</span>
+                                        </th> 
+                                        <th name="th_subtotal" class="text-left">
+                                            <span>Subtotal</span>
+                                        </th>                                   
+                                    </tr>
+                                </thead>
+                                <t t-foreach="o.order_line" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-field="line.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_qty"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.taxes_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.price_subtotal"/>
+                                    </td>
+                                </tr>
+                                </t>
+                                <tr>
+                                    <td colspan="5" class="text-right">
+                                        <span>Grand total :</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.amount_total"/>
+                                    </td>
+                                </tr>
+                            </table><br/><br/>
+                            <span t-field="o.notes"/><br/>
+                        </t>
+                    </div>
+                </t>
+            </t>          
+        </t>
+    </template>
+</odoo>

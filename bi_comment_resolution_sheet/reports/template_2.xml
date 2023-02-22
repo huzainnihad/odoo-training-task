@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="comment_resolution_sheet_template2">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <table width="100%" style="border:1px solid black;">
+                        <tr style="height:75px;border:1px solid black;" >
+                            <td width="35%" style="border:1px solid black;">
+                                <!-- logo1-alfar consotium CO2 wag project -->
+                            </td>
+                            <td width="40%" style="border:1px solid black;font-size: 12px;text-align:center;vertical-align:middle;">
+                                <b>COMMENT RESOLUTION SHEET (CRS)</b>
+                            </td>
+                            <td width="25%" style="border:1px solid black;">
+                                <!-- logo2-qatar petroleum -->
+                            </td>
+                        </tr>
+                        <tr style="height:25px;">
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background: #e7e6e3;vertical-align:middle; ">
+                                <b>CONTRACT NUMBER</b>
+                            </td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                        </tr>
+                        <tr style="height:25px;">
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;vertical-align:middle;">
+                                <b>CONTRACT TITLE</b>
+                            </td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                        </tr>
+                        <tr style="height:25px;">
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;vertical-align:middle;">
+                                <b>QP EXTERNAL TRANMITTAL REFERENCE, DATED:</b>
+                            </td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                        </tr>
+                        <tr style="height:25px;">
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;vertical-align:middle;">
+                                <b>DOCUMENT NUMBER, REV &amp; TITLE:</b>
+                            </td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 8px;background:#e7e6e3;vertical-align:middle;">
+                                <b>Last Revision status: REV-, CODE</b>
+                            </td>
+                        </tr>
+                        <tr style="height:25px;">
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;vertical-align:middle;">
+                                <b>PREVIOUS ISSUED DRAWING NUMBER MADE VOID (IF ANY)</b>
+                            </td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                            <td style="padding-left:3px;border:1px solid black;font-size: 9px;background:#e7e6e3;"></td>
+                        </tr>
+                    </table>
+                    <table width="100%" style="border:1px solid black;">
+                         <tr>
+                            <td width="5%" style="border:1px solid black;font-size: 10px;background:#c6c5be;text-align:center;vertical-align:middle;"> 
+                                <b>SR.<br/>NO</b>
+                            </td>
+                            <td width="30%" style="border:1px solid black;font-size: 10px;background:#c6c5be;text-align:center;vertical-align:middle;"> 
+                                <b>QP COMMENTS</b>
+                            </td>
+                             <td width="40%" style="border:1px solid black;font-size: 10px;background:#c6c5be;text-align:center;vertical-align:middle;"> 
+                                <b>RESPONSIBLE ENGINEER RESPONSE</b>
+                            </td>
+                            <td width="25%" style="border:1px solid black;font-size: 10px;background:#c6c5be;text-align:center;vertical-align:middle;"> 
+                                <b>REMARK</b>
+                            </td>
+                        </tr>
+                    </table>
+                </t>
+            </t>          
+        </t>
+    </template>
+</odoo>

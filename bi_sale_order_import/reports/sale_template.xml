@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+   <record id="sale_order_downlaod_template" model="ir.actions.report">   
+      <field name="name">Sale Order Template</field>
+      <field name="model">sale.order</field>
+      <field name="report_type">xlsx</field> 
+      <field name="report_name">bi_sale_order_import.sale_order_template</field>
+      <field name="report_file">bi_sale_order_import.sale_order_template</field>
+      <!-- <field name="binding_model_id" ref="sale.bi_sale_order_import"/> -->
+      <field name="binding_type">report</field>
+    </record>
+  </data>
+</odoo>
+  

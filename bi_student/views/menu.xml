@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+   <menuitem
+      id="menu_student_root"
+      name="Schools"
+      web_icon="bi_student,static/description/logo.png"
+      sequence="0"/>
+
+      <menuitem
+      id="menu_student_master"
+      name="Student Details"
+      parent= "menu_student_root"
+      sequence="0"/>
+
+      <!-- <menuitem
+      id="menu_appointment_master"
+      name="Appointments"
+      action="action_appointment"
+      parent= "menu_student_root"
+      sequence="20"/> -->
+
+     
+
+    </data>
+
+</odoo>
+
+  
+
+
+ 

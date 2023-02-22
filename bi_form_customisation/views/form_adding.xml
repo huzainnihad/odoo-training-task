@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="form_adding_inherited" model="ir.ui.view">
+        <field name="name">form.adding.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+        <xpath expr="//field[@name='detailed_type']" position="after">
+                <field name="model_year" string="Model Year"/>                    
+            </xpath>    
+           <!-- <field name="detailed_type" position="after">
+                <field name="model_year" string="Model Year" />
+           </field>   -->
+        </field>
+    </record>
+  </data>    
+
+  <data>
+    <record id="form_adding_saleline_inherited" model="ir.ui.view">
+        <field name="name">form.adding.saleline.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="after">
+            <field name="model_year" string="Model Year"  attrs="{'invisible':[('state','=','sale')]}"/>                    
+          </xpath>
+        </field>
+    </record>
+  </data>  
+
+  <data>
+    <record id="link_adding_inherited" model="ir.ui.view">
+        <field name="name">link.adding.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="bi_sale_custom.sale_order_inherited"/>
+        <field name="arch" type="xml">
+        <xpath expr="//field[@name='remark']" position="after">
+                <field name="link" widget="url" readonly="1" string="Link"/>                    
+            </xpath>    
+           <!-- <field name="detailed_type" position="after">
+                <field name="model_year" string="Model Year" />
+           </field>   -->
+        </field>
+    </record>
+  </data>      
+</odoo>

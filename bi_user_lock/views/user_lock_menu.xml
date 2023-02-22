@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_user_lock_date_root"
+        name="User Lock Date"
+        web_icon="bi_user_lock,static/description/icon.png"
+        sequence="-100"/>
+    
+
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bi_material_transfer_user,bi_material_transfer.bi.material.transfer,model_bi_material_transfer,base.group_user,1,1,1,1
+access_bi_product_order_line_user,bi_material_transfer.bi.product.order.line,model_bi_product_order_line,base.group_user,1,1,1,1

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bi_student_user,bi_student.bi.student,model_bi_student,base.group_user,1,1,1,1
+access_bi_appointment_user,bi_appointment.bi.appointment,model_bi_appointment,base.group_user,1,1,1,1
+access_bi_subject_user,bi_student.bi.subject,model_bi_subject,base.group_user,1,1,1,1
+access_bi_subject_lines_user,bi_student.bi.subject.lines,model_bi_subject_lines,base.group_user,1,1,1,1
+access_bi_sale_order_line_user,bi_student.bi.sale.order.line,model_bi_sale_order_line,base.group_user,1,1,1,1

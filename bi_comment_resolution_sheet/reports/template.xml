@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="comment_resolution_sheet_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <table style="width:100%;border:1px solid black;">
+                        <tr style="height:75px;border:1px solid black;" >
+                            <td style="border:1px solid black;"></td>
+                            <td style="border:1px solid black;"><center>
+                                <!-- <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height:70px;max-width:90%;" alt="Company Logo"/> -->
+                            </center></td>
+                            <td style="border:1px solid black;"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid black;"></td>
+                            <td style="border-right:1px solid black;"></td>
+                            <td style="height:75px;border:1px solid black;">
+                                <span style="padding-left:3px">QAPCO DOCUMENT NUMBER:</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid black;">
+                                <span style="padding-left:3px">CONTRACT NO:</span>
+                            </td>
+                            <td style="border-right:1px solid black;">
+                                <span style="padding-left:3px">PROJECT TITLE:</span>
+                            </td>
+                            <td style="border:1px solid black;height:75px;">
+                                <span style="padding-left:3px">DOCUMENT NUMBER:</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid black;">
+                            </td>
+                            <td style="border-right:1px solid black;">
+                            </td>
+                            <td style="border:1px solid black;height:75px;">
+                                <span style="padding-left:3px">DOCUMENT TITLE:</span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p><u><center><h4><b>COMMENT RESOLUTION SHEET</b></h4></center></u></p>
+
+                    <table style="width:100%;border:1px solid black;" >
+                        <tr>
+                            <td style="border:1px solid black;text-align:center">S.No</td>
+                            <td style="border:1px solid black;text-align:center">Section</td>
+                            <td style="border:1px solid black;text-align:center">QAPCO Comments</td>
+                            <td style="border:1px solid black;text-align:center">INSTROL Response</td>
+                            <td style="border:1px solid black;text-align:center">Remarks</td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;text-align: center;">1</td>
+                            <td style="border:1px solid black;"></td>
+                            <td style="border:1px solid black;"></td>
+                            <td style="border:1px solid black;"></td>
+                            <td style="border:1px solid black;"></td>
+                        </tr>
+                    </table>
+                </t>
+            </t>          
+        </t>
+    </template>
+</odoo>

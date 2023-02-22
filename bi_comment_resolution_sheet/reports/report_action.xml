@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report id="comment_resolution_sheet"
+        model="purchase.order"
+        string="Comment Resolution Sheet"
+        report_type="qweb-pdf"
+        name="bi_comment_resolution_sheet.comment_resolution_sheet_template"
+        paperformat="bi_comment_resolution_sheet.comment_resolution_sheet_paperformat"
+    />
+    <!-- <record id="report_purchase" model="ir.actions.report">   
+      <field name="name">Purchase Card</field>
+      <field name="model">purchase.order</field>
+      <field name="report_type">qweb-pdf</field> 
+      <field name="report_name">bi_purchase_report.report_purchase_id_card</field>
+      <field name="report_file">bi_purchase_report.report_purchase_id_card</field>
+      <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+      <field name="binding_type">report</field>
+   </record> -->
+
+
+</odoo>

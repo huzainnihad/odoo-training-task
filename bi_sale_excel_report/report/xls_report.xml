@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+   <record id="report_sale_card_xls" model="ir.actions.report">   
+      <field name="name">Sale Excel Report</field>
+      <field name="model">sale.excel.report.wizard</field>
+      <field name="report_type">xlsx</field> 
+      <field name="report_name">bi_sale_excel_report.report_sale_card_xls</field>
+      <field name="report_file">bi_sale_excel_report.report_sale_card_xls</field>
+      <field name="binding_type">report</field>
+    </record>
+  </data>
+</odoo>
+  

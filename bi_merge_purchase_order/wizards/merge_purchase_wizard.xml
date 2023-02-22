@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_merge_purchase_wizard" model="ir.ui.view">
+        <field name="name">merge.purchase.wizard.form</field>
+        <field name="model">merge.purchase.wizard</field>
+        <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="purchase_order_ids" widget="many2many_tags" invisible="1"/>
+                </group>
+                 <p>Are you sure you want to create vendor bill</p>
+                <footer>
+                    <button name="action_merge_purchase" string="Confirm" type="object" class="btn-primary"/>
+                    <button string="cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </sheet>
+        </form>
+        </field>
+    </record>
+
+</odoo>

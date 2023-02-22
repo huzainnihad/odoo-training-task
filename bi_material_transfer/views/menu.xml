@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+      id="menu_material_transfer_root"
+      name="Material Transfer"
+      web_icon="bi_material_transfer,static/description/icon_menu.png"
+      sequence="0"/>
+
+    <menuitem
+    id="menu_material_transfer_master"
+    name="Material Transfer Details"
+    parent="menu_material_transfer_root"
+    sequence="0"/>
+
+
+</odoo>

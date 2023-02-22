@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="report_purchase" model="ir.actions.report">   
+      <field name="name">Purchase Card</field>
+      <field name="model">purchase.order</field>
+      <field name="report_type">qweb-pdf</field> 
+      <field name="report_name">bi_purchase_report.report_purchase_id_card</field>
+      <field name="report_file">bi_purchase_report.report_purchase_id_card</field>
+      <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+      <field name="binding_type">report</field>
+   </record>
+
+   <record id="raffd_report_paperformat" model="report.paperformat">
+      <field name="name">Raffd Report Paper Format</field>
+      <field name="format">A4</field>
+      <field name="orientation">Landscape</field>
+      <field name="page_height">0</field>
+      <field name="page_width">0</field>
+      <field name="margin_top">5</field>
+      <field name="margin_bottom">5</field>
+      <field name="margin_left">8</field>
+      <field name="margin_right">2</field>
+      <field name="header_spacing">35</field>
+      <field name="dpi">90</field>
+   </record>
+
+   <record id="raffd_report" model="ir.actions.report">   
+      <field name="name">Al Raffd Reports</field>
+      <field name="model">purchase.order</field>
+      <field name="report_type">qweb-pdf</field> 
+      <field name="report_name">bi_purchase_report.raffd_report_card</field>
+      <field name="report_file">bi_purchase_report.raffd_report_card</field>
+      <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+      <field name="binding_type">report</field>
+      <field name="paperformat_id" ref="bi_purchase_report.raffd_report_paperformat"/>
+   </record>
+
+</odoo>

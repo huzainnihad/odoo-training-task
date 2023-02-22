@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+   <record id="report_student_card_xls" model="ir.actions.report">   
+      <field name="name">Student Excel Report</field>
+      <field name="model">bi.student</field>
+      <field name="report_type">xlsx</field> 
+      <field name="report_name">bi_student_excel_report.report_student_excel_id_card</field>
+      <field name="report_file">bi_student_excel_report.report_student_excel_id_card</field>
+      <field name="binding_model_id" ref="bi_student.model_bi_student"/>
+      <field name="binding_type">report</field>
+    </record>
+  </data>
+</odoo>
+  

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_report" model="ir.ui.view">
+        <field name="name">product.report.form</field>
+        <field name="model">product.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Detail Report">
+                <group>
+                    <group >
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                     <group>
+                        <field name="product" widget="many2many_tags"/>
+                        <field name="product_category" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_product_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+     <record id="action_product_report_wizard" model="ir.actions.act_window">
+        <field name="name">Product Detail Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="product_report"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_product_report_wizard"
+    name="Product Detail Report"
+    action="action_product_report_wizard"
+    parent="stock.menu_warehouse_report"
+    sequence="10"/>
+
+</odoo>

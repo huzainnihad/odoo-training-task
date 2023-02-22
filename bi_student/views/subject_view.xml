@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+  <record id="view_subject_tree" model="ir.ui.view">
+            <field name="name">bi.subject.tree</field>
+            <field name="model">bi.subject</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="stud_subject" string="Subject"/>
+                    <field name="max_mark" string="Max Mark"/>
+                </tree>
+            </field>
+    </record>
+
+  <record id="view_subject_form" model="ir.ui.view">
+            <field name="name">bi.subject.form</field>
+            <field name="model">bi.subject</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group> 
+                                <field name="stud_subject" string="Subject"/>
+                                <field name="max_mark" string="Max Mark"/>
+                            </group>
+                            <!-- <group>
+                                <button name = "action_test" string = "object button"
+                                confirm="   Are you sure to execute python code ?"
+                                help="a msg will be printed in the log"
+                                 type = "object" class="oe_highlight"/>
+                                <button name = "%(bi_student.action_stud_details)d" string = "action button"
+                                help="on clicking this button you will directed to the students records"
+                                confirm="   Are you sure to open the patient action ?" 
+                                type = "action" class="oe_highlight"/>
+                            </group> -->
+                        </group>
+                    </sheet>
+                    <!-- <div class ="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div> -->
+                </form>
+            </field>
+    </record>
+
+        <record id="action_subject" model="ir.actions.act_window">
+            <field name="name">Subject</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bi.subject</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field> 
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Create your first subject</p>
+            </field>
+        </record>
+
+      <menuitem
+      id="menu_subject_master"
+      name="Subject"
+      action="action_subject"
+      parent= "menu_student_root"
+      sequence="25"/>
+
+
+    </data>
+</odoo>
+

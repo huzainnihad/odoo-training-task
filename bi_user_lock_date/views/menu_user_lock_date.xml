@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_user_lock_tree" model="ir.ui.view">
+        <field name="name">user lock tree</field>
+        <field name="model">user.lock.date</field>
+        <!-- <field name="priority">4</field> -->
+        <field name="arch" type="xml">
+            <tree string="User Lock Date" class="o_sale_order">
+                <field name="date" string="Date"/>
+                <field name="lock_date" string="Lock Date" widget="boolean_toggle" />
+            </tree>
+        </field>
+    </record>
+     
+    <record id="view_user_lock_form" model="ir.ui.view">
+        <field name="name">user lock tree</field>
+        <field name="model">user.lock.date</field>
+        <!-- <field name="priority">4</field> -->
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date" string="Date"/>
+                    </group>
+                    <group>
+                        <field name="lock_date" string="Lock Date" widget="boolean_toggle" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_user_lock_date" model="ir.actions.act_window">
+        <field name="name">User Lock Date</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">user.lock.date</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your User Lock date !
+            </p>
+        </field>
+    </record>
+    
+    <menuitem
+    id="menu_user_lock_date_master"
+    name="User Lock Date"
+    action="action_user_lock_date"
+    sequence="2"/>
+</odoo>
+
+         <!-- <record id="action_user_lock_date" model="ir.actions.act_window">
+        <field name="name">User Lock Date</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bi.user.lock</field>
+        <field name="context">{}</field> 
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create your first User Lock Date  !
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_user_lock_date_master"
+        name="User Lock Date"
+        action="action_user_lock_date"
+        parent="menu_user_lock_date_root"
+        sequence="0"/> -->
+
+

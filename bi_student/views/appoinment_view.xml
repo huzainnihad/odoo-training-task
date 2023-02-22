@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_appointment_pivot" model="ir.ui.view">
+         <field name="name">bi.appointment.pivot</field>
+         <field name="model">bi.appointment</field>
+         <field name="arch" type="xml">
+             <pivot>
+             </pivot>
+         </field>
+    </record>
+
+
+    <record id="view_appointment_kanban" model="ir.ui.view">
+        <field name="name">bi.appointment.kanban</field>
+        <field name="model">bi.appointment</field>
+        <field name="arch" type="xml">
+            <kanban>
+
+            </kanban>
+        </field>
+    </record>
+
+  <record id="view_appointment_tree" model="ir.ui.view">
+            <field name="name">bi.appointment.tree</field>
+            <field name="model">bi.appointment</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="stud_id"/>
+                    <field name="appointment_time"/>
+                    <field name="booking_date"/>
+                </tree>
+            </field>
+    </record>
+
+  <record id="view_appointment_form" model="ir.ui.view">
+            <field name="name">bi.appointment.form</field>
+            <field name="model">bi.appointment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group> 
+                                <field name="stud_id"/>
+                                <field name="appointment_time"/>
+                                <field name="booking_date"/>
+                            </group>
+                            <group>
+
+                                <button name = "action_test" string = "object button"
+                                confirm="   Are you sure to execute python code ?"
+                                help="a msg will be printed in the log"
+                                type = "object" class="oe_highlight"/>
+
+                                <button name = "%(bi_student.action_stud_details)d" string = "action button"
+                                help="on clicking this button you will directed to the students records"
+                                confirm="   Are you sure to open the student action ?" 
+                                type = "action" class="oe_highlight"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class ="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+    </record>
+
+      <record id="view_appointment_search" model="ir.ui.view">
+            <field name="name">bi.student.search</field>
+            <field name="model">bi.appointment</field>
+            <field name="arch" type="xml">
+                <search>
+                    
+                </search>
+            </field>
+    </record>
+
+
+    <data>
+        <record id="action_appointment" model="ir.actions.act_window">
+            <field name="name">Appointment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bi.appointment</field>
+            <field name="view_mode">tree,form,kanban,pivot</field>
+            <field name="context">{}</field> 
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Create your first appointment</p>
+            </field>
+        </record>
+
+    <menuitem
+      id="menu_appointment"
+      name="Appointments"
+      action="action_appointment"
+      parent= "menu_student_root"
+      sequence="10"/>
+
+    </data>
+</odoo>
